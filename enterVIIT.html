@@ -1,0 +1,155 @@
+<html>
+<head>
+	<title>Final Exam Problem 1</title>
+	
+	<script type="text/javascript" language="javascript">
+	
+		function validateData()
+                {
+                        return(checkVendorName() && checkVendorItemName() && checkVendorPrice());
+                }
+
+		function checkVendorName()
+		{		
+			var vn = /^[a-z A-Z 0-9 ]+$/;
+			var vendorName = document.getElementById('vendorName').value;
+			if(vn.test(vendorName)==true)
+			{
+				return true;
+			}
+			else
+			{
+				alert("The characters entered for Check Vendor Name is invalid.");
+				return false;
+			}
+		}
+		
+		function checkVendorItemName()
+		{
+			var vin = /^[a-z A-Z 0-9 \.]+$/;
+			var vendorItemName = document.getElementById('vendorItemName').value;
+			if(vin.test(vendorItemName)==true)
+			{
+				return true;
+			}
+			else
+			{
+				alert("The characters entered for Vendor Item Name is invalid.");
+				return false;
+			}		
+		}
+		
+		function checkVendorPrice()
+		{
+			var vp = /^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(\.[0-9][0-9])?$/;		
+			var vendorCurrentPrice = document.getElementById('vendorCurrentPrice').value;
+			
+			if(vp.test(vendorCurrentPrice)==true)
+			{
+				return true;
+			}
+			else
+			{
+				alert("The characters entered for Vendor Price is invalid.");
+				return false;
+			}
+		}
+		
+	</script>
+	
+</head>
+
+<body bgcolor="#87CEEB">
+
+	<table align="center" bgcolor="#87CEEB" cellpadding="10">
+		<tr>
+			<td><img src="./mcardlesheader3.jpg"></ td>
+			<td><h1>INVENTORY MANAGEMENT SYSTEM</h1></td>
+			<td><img src="./mcardlesheader3.jpg"></ td>
+		</tr>
+	</table>
+	
+	<form onsubmit="return validateData();" action="processEnterVIIT.php" method="POST">
+	
+		<table align="center" bgcolor="#87CEEB" cellpadding="10">
+			<tr>
+				<td align="center" colspan="2"><h2 align="center" style="color:#8C001A;">ADD A VENDOR INVENTORY ITEM TYPE</h2></td>
+			</tr>
+			<tr>
+				<td>
+					<label><b>Vendor Name:</b></label>
+				</td>
+				<td>
+					<input type="text" id="vendorName" name="vendorName">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label><b>Vendor Item Name:</b></label>
+				</td>
+				<td>
+					<input type="text" id="vendorItemName" name="vendorItemName">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label><b>Vendor Current Price ($):</b></label>
+				</td>
+				<td>
+					<input type="text" id="vendorCurrentPrice" name="vendorCurrentPrice">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label><b>Price Unit Indicator:</label>
+				</td>
+				<td>
+					<select id="priceUnitIndicator" name="priceUnitIndicator" style="width: 160px;">
+						<option>PerUnit</option>
+						<option>Gross</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label><b>Vendor Description:</b></label>
+				</td>
+				<td>
+					<input type="text" id="vendorDescription" name="vendorDescription">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label><b>Vendors Item Number:</b></label>
+				</td>
+				<td>
+					<input type="text" id="vendorItemNumber" name="vendorItemNumber">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label><b>Preferred Vendor:</b></label>
+				</td>
+				<td>	
+					Yes:&nbsp;<input type="radio" id="preferredVendor" name="preferredVendor" value="yes">
+					&nbsp;No: <input type="radio" id="preferredVendor" name="preferredVendor" value="no">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" id="submit" name="submit">
+					<input type="reset" id="reset" name="reset">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
+
+
